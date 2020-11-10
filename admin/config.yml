@@ -1,0 +1,19 @@
+backend:
+  name: git-gateway
+  branch: master
+
+media_folder: "_site/images/uploads" # media files will be stored here
+public_folder: "/images/uploads" # src 
+
+collections: 
+  - name: "posts" # used in routes
+    label: "Posts" # used in UI
+    folder: "posts" # where this
+    slug: "{{ year }}-{{ month }}-{{ day }}-{{ slug }}" # filename template
+    fields:
+      - {label: "Layout", name: "layout", widget: "hidden", default: "layouts/post.njk"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Description", name: "description", widget: "string"}
+      - {label: "Date", name: "date", widget: "date" default: ""}
+      - {label: "Post Body", name: "body", widget: "markdown"}
+      - {label: "Featured Image", name: "featuredImage", widget: "image"}
