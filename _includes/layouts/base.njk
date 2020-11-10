@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <title>oZ0n3's Blog</title>
 </head>
 <body>
     <h1>oZ0n3's Blog</h1>
     {{ content | safe }}
+    <!-- Netlify script -->
+    <script>
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", user => {
+            if (!user) {
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
+            }
+          });
+        }
+      </script>
 </body>
 </html>
